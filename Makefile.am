@@ -18,7 +18,7 @@ test: check
 	./test-program
 
 clean-local:
-	find . -name "*.gcda" -print0 | xargs -0 rm
+	find . -name "*.gcda" -exec rm -rf {} \;
 
 coverage.info: test
 	lcov --compat-libtool --capture --directory source --output-file coverage.info
